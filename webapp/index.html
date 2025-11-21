@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Spark — Vocabulary Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">English Spark • 词汇助教</p>
+        <h1>Upload vocabulary lists. Test with context. Grow with every round.</h1>
+        <p class="lede">Designed for Chinese senior high students: bring your Word or PDF lists and instantly get usage notes, common phrases, and memorable example sentences.</p>
+        <div class="actions">
+          <button class="primary" id="startPractice">Start practice</button>
+          <button class="ghost" id="clearWords">Clear list</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="muted">Interactive mode</p>
+        <div class="card" id="activeCard">
+          <div class="card-header">
+            <span class="pill">Word focus</span>
+            <span id="cardProgress" class="muted">0 / 0</span>
+          </div>
+          <h2 id="cardWord">Load words to begin</h2>
+          <p id="cardUsage" class="muted">Upload a list to generate instant insights and sample sentences for practice.</p>
+          <div class="card-footer">
+            <button class="secondary" id="revealDetails" disabled>Reveal details</button>
+            <div class="button-pair">
+              <button class="success" id="markKnown" disabled>Got it</button>
+              <button class="danger" id="markReview" disabled>Need review</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Step 1</p>
+            <h3>Upload your vocabulary</h3>
+            <p class="muted">Drop in a Word (.docx), PDF, or text file. Each unique English word becomes a study card.</p>
+          </div>
+          <label class="primary pill" for="fileInput">Choose file</label>
+          <input type="file" id="fileInput" accept=".txt,.docx,.pdf" hidden />
+        </div>
+        <div class="dropzone" id="dropzone">
+          <p class="muted">Drag and drop your file here, or click “Choose file”.</p>
+          <p class="micro">We extract plain text; keep one word or phrase per line for best results.</p>
+        </div>
+        <div class="stats" id="stats">
+          <div>
+            <p class="stat-number" id="statWords">0</p>
+            <p class="micro">Unique words loaded</p>
+          </div>
+          <div>
+            <p class="stat-number" id="statPhrases">0</p>
+            <p class="micro">Phrases suggested</p>
+          </div>
+          <div>
+            <p class="stat-number" id="statExamples">0</p>
+            <p class="micro">Example sentences</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Step 2</p>
+            <h3>Word bank & smart notes</h3>
+            <p class="muted">Each entry comes with usage guidance, common phrases, and one memorable example sentence.</p>
+          </div>
+          <div class="filters">
+            <input id="searchBox" type="search" placeholder="Search words" />
+            <span class="pill muted" id="wordCountLabel">0 words</span>
+          </div>
+        </div>
+        <div class="word-list" id="wordList"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js" integrity="sha512-iQ5f3cY4FUt2y7D4prJPDHyk9Fqg+tS/FT/6O3du2B0DYIEpNMwVYfGN3b/rCfS0NQDyghR9Mzd0zDt6uHn8qA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" integrity="sha512-xm++mDCkDsPGNBUsgHErqDH2PzRz23oOWfNNfe5TK9G210UMjiE04ygPrwOlkBMNnLg2VQCiaPk/xD0ZJsliSw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="app.js"></script>
+</body>
+</html>
